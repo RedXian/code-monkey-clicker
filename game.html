@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var linesOfCode=0;
+var linesPerTick=0;
+var costPerMonkey=15;
+var monkeys=0;
+
+function startTime()
+{
+linesOfCode+=linesPerTick;
+document.getElementById('code').innerHTML=(Math.round(linesOfCode*10)/10).toFixed(1);
+document.getElementById('monkey_total').innerHTML=monkeys;
+document.getElementById('monkey_cost').innerHTML=costPerMonkey;
+document.getElementById('lps').innerHTML=Math.round(linesPerTick*10).toFixed(1);
+t=setTimeout(function(){startTime()},100);
+}
+
+function doLine()
+{
+linesOfCode+=1;
+}
+
+function buyMonkey()
+{ 
+if(linesOfCode>=costPerMonkey)
+{
+	monkeys+=1;
+	linesPerTick+=0.1;
+	linesOfCode-=costPerMonkey;
+	costPerMonkey=Math.round(costPerMonkey*1.15);
+}
+}
+
+</script> 
+</head>
+
+<body onload="startTime()"> 
+<div><span id="code">0</span> lines of code written.</div>
+<div><span id="lps">0</span> lines per second.</div>
+<input type="button" value="Write a line of code!" onClick="doLine()">
+
+<div id="monkey_btn">
+<input type="button" value="Buy Monkey" onClick="buyMonkey()">
+<span id="monkey_cost">15</span> per monkey</div>
+<div><span id="monkey_total">0</span> monkeys</div>
+</body>
+</html>
