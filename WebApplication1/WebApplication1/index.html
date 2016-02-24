@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="game.js"></script>
+</head>
+<body onload="initialiseGame()">
+    <div id="clickerInfo">
+        <span id="code">0</span> lines of code written.<br>
+        <span id="lps">0</span> lines per second.<br>
+        <input type="button" value="Write a line of code!" onclick="writeLine()">
+    </div>
+    <table id="store">
+        <tr>
+            <td>
+                <div id="monkey" style="display: none">
+                    <input id="monkey_btn" type="button" value="Buy Monkey" disabled="disabled" onclick="buyMonkey()">
+                    Cost: <span id="monkey_cost">15</span> Total: <span id="monkey_total">0</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="coder" style="display: none">
+                    <input id="coder_btn" type="button" value="Buy Coder" disabled="disabled" onclick="buyCoder()">
+                    Cost: <span id="coder_cost">100</span> Total: <span id="coder_total">0</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">by Christian McNeill (c2013)</div>
+</body>
+</html>
